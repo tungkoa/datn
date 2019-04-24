@@ -1,0 +1,7 @@
+{
+  "name": "ionic-datn",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
