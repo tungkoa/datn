@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
         <ion-row>
-            <ion-col><div><img id="img1" src="../../assets/icon2.png"></div></ion-col>
+            <ion-col id="col0"><div><img id="img1" src="../../assets/icon2.png"></div></ion-col>
             <ion-col></ion-col>
         </ion-row>
   </ion-toolbar>
@@ -13,7 +13,7 @@
    </ion-row>
   <ion-row id="row1" >
     <ion-col id="col1">
-        <ion-button shape="round" fill="clear" size="large">
+        <ion-button (click)="get()" shape="round" fill="clear" size="large">
             <ion-icon name="laptop"></ion-icon>
         </ion-button><br>
         <ion-label>may tinh</ion-label>
