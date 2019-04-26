@@ -1,9 +1,45 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Đăng bán
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <form>
+    <ion-item>
+    <ion-label position="floating">Danh muc</ion-label>
+    <ion-select style="text-align: center">
+      <ion-select-option >Dien thoai</ion-select-option>
+      <ion-select-option value="cat">May tinh bang</ion-select-option>
+      <ion-select-option value="dog">May tinh</ion-select-option>
+    </ion-select>
+  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nhan hieu</ion-label>
+      <ion-select >
+        <ion-select-option >Apple</ion-select-option>
+        <ion-select-option value="cat">Samsung</ion-select-option>
+        <ion-select-option value="dog" >Sony</ion-select-option>
+        <ion-select-option >Xiaomi</ion-select-option>
+        <ion-select-option value="cat">Huawei</ion-select-option>
+        <ion-select-option value="dog" >Lg</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Tieu de</ion-label>
+      <ion-input placeholder="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">File</ion-label>
+      <ion-input type="file"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Floating Label</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+  </form>
+
+</ion-content>

@@ -2,9 +2,13 @@
   max-height: 35vh;
   overflow: hidden;
 }
+ion-searchbar{
+  border-radius: 80%  ;
+}
 ion-button{
   border-radius: 80%;
-  background-color: rgba(255,132,83,0.14);
+  background-color: ghostwhite;
+  margin-top: 0.75rem;
 }
 #row1{
   height: 20%;
