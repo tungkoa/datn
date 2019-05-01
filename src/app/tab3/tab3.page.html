@@ -6,6 +6,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="text" [value]="username" [(ngModel)]="username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" [value]="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div text-center margin-top>
+    <button ion-button margin-right (click)="signUp()">
+      SIGN UP
+    </button>
+
+    <button ion-button color="secondary" (click)="signIn()">
+      SIGN IN
+    </button>
+  </div>
 </ion-content>
 

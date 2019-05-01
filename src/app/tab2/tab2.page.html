@@ -39,7 +39,13 @@
       <ion-label position="floating">Floating Label</ion-label>
       <ion-input></ion-input>
     </ion-item>
+    <ion-button (click)="post()">post</ion-button>
+    <ion-button (click)="getPicture()">picture</ion-button>
+    <div>
+      <img src="{{photo}}" style="max-width: 30%">
+    </div>
 
   </form>
 
 </ion-content>
+
