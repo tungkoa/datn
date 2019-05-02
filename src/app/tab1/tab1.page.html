@@ -36,28 +36,31 @@
             <ion-label>may tinh bang</ion-label>
         </ion-col>
     </ion-row>
-<!--    <ion-row *ngFor="let phone of name" >-->
-<!--        <ion-col>-->
-<!--            <img style="max-width: 30%" src="../../assets/default.jpg">-->
-<!--        </ion-col>-->
-<!--        <ion-col>-->
-<!--            <ion-list>{{phone.name}}</ion-list>-->
-<!--            <ion-list>{{phone.price}}</ion-list>-->
-<!--        </ion-col>-->
-<!--    </ion-row>-->
+    <!--    <ion-row *ngFor="let phone of name" >-->
+    <!--        <ion-col>-->
+    <!--            <img style="max-width: 30%" src="../../assets/default.jpg">-->
+    <!--        </ion-col>-->
+    <!--        <ion-col>-->
+    <!--            <ion-list>{{phone.name}}</ion-list>-->
+    <!--            <ion-list>{{phone.price}}</ion-list>-->
+    <!--        </ion-col>-->
+    <!--    </ion-row>-->
 
     <ion-list inset="true">
-        <ion-list-header>
-            Recent Conversations
-        </ion-list-header>
-        <ion-item  *ngFor="let phone of name">
-            <ion-avatar  slot="start" >
-                <img style="max-width: 30%" src="{{phone.images._url}}">
-            </ion-avatar>
+<!--        <ion-list-header>-->
+<!--        </ion-list-header>-->
+        <div *ngIf="show" style="text-align: center">
+            <img style="max-width: 20%" src="../../assets/giphy1.gif">
+        </div>
+        <ion-item *ngFor="let phone of name">
+            <ion-thumbnail style="min-width: 30%" slot="start">
+                <img src="{{phone.images._url}}">
+            </ion-thumbnail>
             <ion-label style="margin-top: auto">
                 <h2>{{phone.name}}</h2>
                 <p>{{phone.price}}</p>
             </ion-label>
         </ion-item>
     </ion-list>
+
 </ion-content>

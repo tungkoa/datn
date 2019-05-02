@@ -13,17 +13,19 @@ export class Tab2Page {
         Parse.initialize(
             'g0zgt6wUmW8XEYHc334KkHOEhf2gUSSJ1xIzalFx', // This is your Application ID
             'nuXaZQc8jtojQ25TBHXAS3hy8EJqZ800UOYO9sdh' // This is your Javascript key
-        )
+        );
     }
-photo:any;
-    getPicture(){
+
+    photo: any;
+
+    getPicture() {
         const options: CameraOptions = {
             quality: 50,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE,
-            saveToPhotoAlbum:false
-        }
+            saveToPhotoAlbum: false
+        };
 
         this.camera.getPicture(options).then((imageData) => {
             // imageData is either a base64 encoded string or a file URI
@@ -31,7 +33,7 @@ photo:any;
             this.photo = 'data:image/jpeg;base64,' + imageData;
         }, (err) => {
             // Handle error
-        })
+        });
     }
 
     post() {
@@ -39,7 +41,7 @@ photo:any;
         const myNewObject = new MyCustomClass();
         myNewObject.set('name', 's9');
         myNewObject.set('price', 22000);
-        myNewObject.set('images',new Parse.File("photo", { base64: this.photo }));
+        myNewObject.set('images', new Parse.File('photo', {base64: this.photo}));
         myNewObject.save().then(
             (result) => {
                 console.log(result);

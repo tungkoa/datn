@@ -23,8 +23,9 @@ export class Tab1Page {
     name=[];
     price;
 obj=[];
-
+show=false;
     get() {
+        this.show=true;
         const MyCustomClass = Parse.Object.extend('Product');
         const query = new Parse.Query(MyCustomClass);
         // query.equalTo("price", 333);
@@ -33,13 +34,10 @@ obj=[];
             for (let i of results) {
                 console.log(i.attributes);
                 this.name.push(i.attributes);
-                // this.obj=[new Phone(i.attributes.name,i.attributes.price)];
-                // console.log(this.obj)
             }
             console.log(this.name)
+            this.show=false;
         }, (error) => {
         });
     }
 }
-
-
