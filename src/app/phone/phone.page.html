@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back" (click)="back()"></ion-icon>
+    <ion-title>phone</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset="true">
+    <!--        <ion-list-header>-->
+    <!--        </ion-list-header>-->
+    <div *ngIf="show" style="text-align: center">
+      <img style="max-width: 20%" src="../../assets/giphy1.gif">
+    </div>
+    <ion-item (click)="navigateProductDetail()" *ngFor="let listP of listProductShow">
+      <ion-thumbnail  slot="start">
+        <img src="{{listP.images._url}}">
+      </ion-thumbnail>
+      <ion-label style="margin-top: auto">
+        <h2>{{listP.title}}</h2>
+        <p>{{listP.price}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

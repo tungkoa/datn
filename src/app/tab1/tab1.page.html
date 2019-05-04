@@ -15,14 +15,14 @@
     </ion-row>
     <ion-row id="row1">
         <ion-col id="col1">
-            <ion-button (click)="get()" shape="round" fill="clear" size="large">
+            <ion-button (click)="navigateLaptop()" shape="round" fill="clear" size="large">
                 <ion-icon name="laptop"></ion-icon>
             </ion-button>
             <br>
             <ion-label>may tinh</ion-label>
         </ion-col>
         <ion-col id="col2">
-            <ion-button shape="round" fill="clear" size="large">
+            <ion-button (click)="navigatePhone()" shape="round" fill="clear" size="large">
                 <ion-icon name="phone-portrait"></ion-icon>
             </ion-button>
             <br>
@@ -36,15 +36,6 @@
             <ion-label>may tinh bang</ion-label>
         </ion-col>
     </ion-row>
-    <!--    <ion-row *ngFor="let phone of name" >-->
-    <!--        <ion-col>-->
-    <!--            <img style="max-width: 30%" src="../../assets/default.jpg">-->
-    <!--        </ion-col>-->
-    <!--        <ion-col>-->
-    <!--            <ion-list>{{phone.name}}</ion-list>-->
-    <!--            <ion-list>{{phone.price}}</ion-list>-->
-    <!--        </ion-col>-->
-    <!--    </ion-row>-->
 
     <ion-list inset="true">
 <!--        <ion-list-header>-->
@@ -52,15 +43,14 @@
         <div *ngIf="show" style="text-align: center">
             <img style="max-width: 20%" src="../../assets/giphy1.gif">
         </div>
-        <ion-item *ngFor="let phone of name">
-            <ion-thumbnail style="min-width: 30%" slot="start">
-                <img src="{{phone.images._url}}">
+        <ion-item (click)="navigateProductDetail()" *ngFor="let listP of listProductShow">
+            <ion-thumbnail  slot="start">
+                <img src="{{listP.images._url}}">
             </ion-thumbnail>
             <ion-label style="margin-top: auto">
-                <h2>{{phone.name}}</h2>
-                <p>{{phone.price}}</p>
+                <h2>{{listP.name}}</h2>
+                <p>{{listP.price}}</p>
             </ion-label>
         </ion-item>
     </ion-list>
-
 </ion-content>
