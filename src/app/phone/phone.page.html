@@ -1,11 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-icon name="arrow-back" (click)="back()"></ion-icon>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>phone</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  </ion-refresher>
   <ion-list inset="true">
     <!--        <ion-list-header>-->
     <!--        </ion-list-header>-->
@@ -18,9 +22,12 @@
       </ion-thumbnail>
       <ion-label style="margin-top: auto">
         <h2>{{listP.title}}</h2>
-        <p>{{listP.price}}</p>
+        <p>{{listP.price.toLocaleString()}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
 
 </ion-content>
+<ion-footer>
+  <ion-progress-bar *ngIf="isShowLoadingBar" type="indeterminate"></ion-progress-bar>
+</ion-footer>

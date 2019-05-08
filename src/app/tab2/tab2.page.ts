@@ -8,17 +8,21 @@ import * as Parse from 'parse';
     styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-    constructor(private camera:Camera) {
+
+    constructor(private camera: Camera) {
         Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
         Parse.initialize(
             'g0zgt6wUmW8XEYHc334KkHOEhf2gUSSJ1xIzalFx', // This is your Application ID
             'nuXaZQc8jtojQ25TBHXAS3hy8EJqZ800UOYO9sdh' // This is your Javascript key
         );
     }
+
+    isShow = false;
     category;
-    price;
+    price: number;
     photo: any;
     title;
+
     getPicture() {
         const options: CameraOptions = {
             quality: 50,
@@ -38,19 +42,25 @@ export class Tab2Page {
     }
 
     post() {
-        const MyCustomClass = Parse.Object.extend('Product');
-        const myNewObject = new MyCustomClass();
-        myNewObject.set('category', this.category);
-        myNewObject.set('title', this.title);
-        myNewObject.set('price', this.price);
-        myNewObject.set('images', new Parse.File('photo', {base64: this.photo}));
-        myNewObject.save().then(
-            (result) => {
-                console.log(result);
-            },
-            (error) => {
-                console.log(error);
-            }
-        );
+        if (this.category && this.title && this.price) {
+            const MyCustomClass = Parse.Object.extend('Product');
+            const myNewObject = new MyCustomClass();
+            myNewObject.set('category', +this.category);
+            myNewObject.set('title', this.title);
+            myNewObject.set('price', +this.price);
+            myNewObject.set('images', new Parse.File('photo', {base64: this.photo}));
+            myNewObject.save().then(
+                (result) => {
+                    alert('success');
+                    console.log(result);
+                },
+                (error) => {
+                    alert('fail');
+                    console.log(error);
+                }
+            );
+        } else {
+           alert('ban nhap con thieu');
+        }
     }
 }

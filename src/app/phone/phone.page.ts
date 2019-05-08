@@ -1,40 +1,39 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {NavController} from '@ionic/angular';
 import {AppService} from '../app.service';
 
 @Component({
-  selector: 'app-phone',
-  templateUrl: './phone.page.html',
-  styleUrls: ['./phone.page.scss'],
+    selector: 'app-phone',
+    templateUrl: './phone.page.html',
+    styleUrls: ['./phone.page.scss'],
 })
 export class PhonePage {
-  constructor(private router: Router, public navCtrl: NavController, private appService: AppService) {
-    this.get();
-  }
+    constructor(private router: Router, private appService: AppService) {
+        this.get();
+    }
 
-  back() {
-    this.navCtrl.back();
-  }
+    isShowLoadingBar = false;
+    listProduct = [];
+    listProductShow = [];
+    show = false;
+    doRefresh(event){
+        this.get();
+        event.target.complete();
+    }
+    get() {
+        this.isShowLoadingBar = true;
+        this.appService.get(2, () => {
+            this.listProduct = Object.assign(this.appService.listProduct);
+            this.listProductShow = Object.assign(this.listProduct);
+            this.isShowLoadingBar = false;
+            console.log(this.listProduct);
+        });
+        this.appService.listProduct = [];
+    }
 
-  listProduct = [];
-  listProductShow = [];
-  show = false;
+    navigateProductDetail() {
+        this.router.navigate(['phone-detail']);
 
-  get() {
-    this.show = true;
-    this.appService.get(2,results => {
-      this.listProduct = Object.assign(this.appService.listProduct)
-      this.listProductShow = Object.assign(this.listProduct);
-      this.show = false;
-      console.log(this.listProduct)
-    })
-    this.appService.listProduct=[];
-  }
-
-  navigateProductDetail() {
-    this.router.navigate(['phone-detail']);
-
-  }
+    }
 
 }

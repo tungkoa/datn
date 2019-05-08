@@ -10,23 +10,19 @@ import {AppService} from '../app.service';
 })
 export class ProductPage {
     constructor(private router: Router, public navCtrl: NavController, private appService: AppService) {
-    this.get();
+        this.get();
     }
-
-    back() {
-        this.navCtrl.back();
-    }
-
+    isShowLoadingBar=false;
     listProduct = [];
-    listProductShow=[];
+    listProductShow = [];
     show = false;
 
     get() {
-        this.show = true;
-        this.appService.get(1,results => {
+        this.isShowLoadingBar = true;
+        this.appService.get(1, results => {
             this.listProduct = Object.assign(this.appService.listProduct);
             this.listProductShow = Object.assign(this.listProduct);
-            this.show = false;
+            this.isShowLoadingBar = false;
             console.log(this.listProduct)
         })
         this.appService.listProduct = [];

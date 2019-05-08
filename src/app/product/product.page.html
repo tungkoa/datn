@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-icon name="arrow-back" (click)="back()"></ion-icon>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>product</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -24,3 +26,6 @@
   </ion-list>
 
 </ion-content>
+<ion-footer>
+  <ion-progress-bar *ngIf="isShowLoadingBar" type="indeterminate"></ion-progress-bar>
+</ion-footer>
