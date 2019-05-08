@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
 import * as Parse from 'parse';
+import {AlertController} from "@ionic/angular";
 
 @Component({
     selector: 'app-tab2',
@@ -9,7 +10,7 @@ import * as Parse from 'parse';
 })
 export class Tab2Page {
 
-    constructor(private camera: Camera) {
+    constructor(private camera: Camera, public alertController: AlertController) {
         Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
         Parse.initialize(
             'g0zgt6wUmW8XEYHc334KkHOEhf2gUSSJ1xIzalFx', // This is your Application ID
@@ -22,6 +23,17 @@ export class Tab2Page {
     price: number;
     photo: any;
     title;
+
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Thong bao',
+            message: 'Hay kiem tra lai thong tin',
+            buttons: ['OK'],
+            animated: true,
+            translucent: true,
+        });
+        await alert.present();
+    }
 
     getPicture() {
         const options: CameraOptions = {
@@ -60,7 +72,7 @@ export class Tab2Page {
                 }
             );
         } else {
-           alert('ban nhap con thieu');
+            this.presentAlert();
         }
     }
 }
