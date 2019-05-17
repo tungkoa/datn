@@ -12,7 +12,8 @@ export class ProductPage {
     constructor(private router: Router, public navCtrl: NavController, private appService: AppService) {
         this.get();
     }
-    isShowLoadingBar=false;
+
+    isShowLoadingBar = false;
     listProduct = [];
     listProductShow = [];
     show = false;

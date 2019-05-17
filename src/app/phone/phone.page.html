@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar>
+    <ion-progress-bar *ngIf="isShowLoadingBar" type="indeterminate"></ion-progress-bar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>phone</ion-title>
+    <ion-title>Điện thoại</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -28,6 +29,6 @@
   </ion-list>
 
 </ion-content>
-<ion-footer>
-  <ion-progress-bar *ngIf="isShowLoadingBar" type="indeterminate"></ion-progress-bar>
-</ion-footer>
+<!--<ion-footer>-->
+<!--  <ion-progress-bar *ngIf="isShowLoadingBar" type="indeterminate"></ion-progress-bar>-->
+<!--</ion-footer>-->

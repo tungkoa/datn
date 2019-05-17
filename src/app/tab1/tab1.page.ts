@@ -19,6 +19,19 @@ export class Tab1Page {
     listProductShow=[];
     show = false;
 
+//     get(){
+//         const Post = Parse.Object.extend("Post");
+//         const query = new Parse.Query(Post);
+//
+//         query.ascending("createdAt");
+//
+// // Sorts the results in descending order by the views field
+// //         query.descending("views");
+//
+//         query.find().then(results => {
+//             console.log(results);
+//         });
+//     }
     navigateLaptop() {
         this.router.navigate(['product']);
         // this.navCtrl.push(ProductPage);

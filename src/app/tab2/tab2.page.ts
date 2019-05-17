@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
 import * as Parse from 'parse';
 import {AlertController} from "@ionic/angular";
+import {LoadingController} from "@ionic/angular";
 
 @Component({
     selector: 'app-tab2',
@@ -10,7 +11,7 @@ import {AlertController} from "@ionic/angular";
 })
 export class Tab2Page {
 
-    constructor(private camera: Camera, public alertController: AlertController) {
+    constructor(private camera: Camera, public alertController: AlertController, public loadingController: LoadingController) {
         Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
         Parse.initialize(
             'g0zgt6wUmW8XEYHc334KkHOEhf2gUSSJ1xIzalFx', // This is your Application ID
@@ -18,10 +19,10 @@ export class Tab2Page {
         );
     }
 
-    isShow = false;
+    isShowLoadingBar = false;
     category;
-    price: number;
-    photo: any;
+    price;
+    photo = '../../assets/default.jpg';
     title;
 
     async presentAlert() {
@@ -41,7 +42,8 @@ export class Tab2Page {
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE,
-            saveToPhotoAlbum: false
+            saveToPhotoAlbum: false,
+            correctOrientation: true
         };
 
         this.camera.getPicture(options).then((imageData) => {
@@ -55,15 +57,21 @@ export class Tab2Page {
 
     post() {
         if (this.category && this.title && this.price) {
+            this.isShowLoadingBar = true;
             const MyCustomClass = Parse.Object.extend('Product');
             const myNewObject = new MyCustomClass();
             myNewObject.set('category', +this.category);
             myNewObject.set('title', this.title);
             myNewObject.set('price', +this.price);
             myNewObject.set('images', new Parse.File('photo', {base64: this.photo}));
+            this.category = '';
+            this.price = '';
+            this.title = '';
+            this.photo = '../../assets/default.jpg';
             myNewObject.save().then(
                 (result) => {
-                    alert('success');
+                    this.isShowLoadingBar = false;
+                    alert('Đăng bán thành công');
                     console.log(result);
                 },
                 (error) => {

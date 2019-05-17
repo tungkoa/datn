@@ -6,9 +6,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-  <ion-list>
+  <ion-list *ngIf="!isUserLogin">
     <ion-item>
       <ion-label position="floating">Username</ion-label>
       <ion-input type="text" [value]="username" [(ngModel)]="username"></ion-input>
@@ -18,16 +18,22 @@
       <ion-label>Password</ion-label>
       <ion-input type="password" [value]="password" [(ngModel)]="password"></ion-input>
     </ion-item>
+
+    <div>
+      <ion-button (click)="signUp()">
+        SIGN UP
+      </ion-button>
+      <button ion-button color="secondary" (click)="signIn()">
+        SIGN IN
+      </button>
+    </div>
+    <div>
+      <ion-button (click)="facebookLogin()">
+        LOG IN WITH FACEBOOK
+      </ion-button>
+    </div>
   </ion-list>
 
-  <div text-center margin-top>
-    <button ion-button margin-right (click)="signUp()">
-      SIGN UP
-    </button>
-
-    <button ion-button color="secondary" (click)="signIn()">
-      SIGN IN
-    </button>
-  </div>
+  <ion-button *ngIf="isUserLogin" (click)="fbLogout()">logout</ion-button>
 </ion-content>
 

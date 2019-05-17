@@ -1,5 +1,6 @@
 <ion-header>
     <ion-toolbar>
+        <ion-progress-bar *ngIf="isShowLoadingBar" type="indeterminate"></ion-progress-bar>
         <ion-title>
             Đăng bán
         </ion-title>
@@ -7,30 +8,29 @@
 </ion-header>
 
 <ion-content>
-    <div *ngIf="isShow">ban nhap con thieu</div>
+<!--    <ion-button (click)="getPicture()">Thêm ảnh</ion-button>-->
+    <div>
+        <img (click)="getPicture()" src="{{photo}}" style="max-width: 30%;margin-top: 10px;margin-left: 10px">
+    </div>
     <ion-item>
-        <ion-label position="floating">Danh muc</ion-label>
-        <ion-select style="text-align: center" [(ngModel)]="category">
-            <ion-select-option value="1">May tinh</ion-select-option>
-            <ion-select-option value="2">Dien thoai</ion-select-option>
-            <ion-select-option value="3">May tinh bang</ion-select-option>
+        <ion-label position="floating">Loại sản phẩm</ion-label>
+        <ion-select [(ngModel)]="category" placeholder="Máy tính">
+            <ion-select-option value="1">Máy tính</ion-select-option>
+            <ion-select-option value="2">Điện thoại</ion-select-option>
+            <ion-select-option value="3">Máy tính bảng</ion-select-option>
         </ion-select>
     </ion-item>
     <ion-item>
-        <ion-label position="floating">Tieu de</ion-label>
-        <ion-input required placeholder="name" name="title" [(ngModel)]="title"></ion-input>
+        <ion-label position="floating">Tiêu đề</ion-label>
+        <ion-input required placeholder="tên sản phẩm" name="title" [(ngModel)]="title"></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label position="floating">Gia</ion-label>
-        <ion-input placeholder="gia tien" name="price" [(ngModel)]="price" required></ion-input>
+        <ion-label position="floating">Giá đề nghị</ion-label>
+        <ion-input placeholder="giá tiền (VNĐ)" type="number" name="price" [(ngModel)]="price" required></ion-input>
     </ion-item>
-    <ion-button (click)="post()">post</ion-button>
-    <ion-button (click)="getPicture()">picture</ion-button>
-    <div>
-        <img src="{{photo}}" style="max-width: 30%">
-    </div>
+
 
 </ion-content>
-<ion-footer>
-
+<ion-footer style="text-align: center;background-color: white">
+    <ion-button expand="block" (click)="post()">Đăng bán</ion-button>
 </ion-footer>

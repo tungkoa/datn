@@ -19,39 +19,39 @@
                 <ion-icon name="laptop"></ion-icon>
             </ion-button>
             <br>
-            <ion-label>may tinh</ion-label>
+            <ion-label>Máy tính</ion-label>
         </ion-col>
         <ion-col id="col2">
             <ion-button (click)="navigatePhone()" shape="round" fill="clear" size="large">
                 <ion-icon name="phone-portrait"></ion-icon>
             </ion-button>
             <br>
-            <ion-label>dien thoai</ion-label>
+            <ion-label>Điện thoại</ion-label>
         </ion-col>
         <ion-col id="col3">
             <ion-button shape="round" fill="clear" size="large">
                 <ion-icon name="tablet-portrait"></ion-icon>
             </ion-button>
             <br>
-            <ion-label>may tinh bang</ion-label>
+            <ion-label>Máy tính bảng</ion-label>
         </ion-col>
     </ion-row>
 
-    <ion-list inset="true">
-<!--        <ion-list-header>-->
-<!--        </ion-list-header>-->
-        <div *ngIf="show" style="text-align: center">
-            <img style="max-width: 20%" src="../../assets/giphy1.gif">
-        </div>
-        <ion-item (click)="navigateProductDetail()" *ngFor="let listP of listProductShow">
-            <ion-thumbnail  slot="start">
-                <img src="{{listP.images._url}}">
-            </ion-thumbnail>
-            <ion-label style="margin-top: auto">
-                <h2>{{listP.name}}</h2>
-                <p>{{listP.price}}</p>
-            </ion-label>
-        </ion-item>
-    </ion-list>
+<!--    <ion-list inset="true">-->
+<!--&lt;!&ndash;        <ion-list-header>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-list-header>&ndash;&gt;-->
+<!--        <div *ngIf="show" style="text-align: center">-->
+<!--            <img style="max-width: 20%" src="../../assets/giphy1.gif">-->
+<!--        </div>-->
+<!--        <ion-item (click)="navigateProductDetail()" *ngFor="let listP of list">-->
+<!--            <ion-thumbnail  slot="start">-->
+<!--                <img src="{{listP.images._url}}">-->
+<!--            </ion-thumbnail>-->
+<!--            <ion-label style="margin-top: auto">-->
+<!--                <h2>{{listP.name}}</h2>-->
+<!--                <p>{{listP.price}}</p>-->
+<!--            </ion-label>-->
+<!--        </ion-item>-->
+<!--    </ion-list>-->
 </ion-content>
 

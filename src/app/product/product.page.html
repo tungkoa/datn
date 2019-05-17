@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar>
+      <ion-progress-bar *ngIf="isShowLoadingBar" type="indeterminate"></ion-progress-bar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>product</ion-title>
+    <ion-title>Máy tính</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,21 +12,19 @@
   <ion-list inset="true">
     <!--        <ion-list-header>-->
     <!--        </ion-list-header>-->
-    <div *ngIf="show" style="text-align: center">
-      <img style="max-width: 20%" src="../../assets/giphy1.gif">
-    </div>
+
     <ion-item (click)="navigateProductDetail()" *ngFor="let listP of listProductShow">
       <ion-thumbnail  slot="start">
-        <img src="{{listP.images._url}}">
+        <img style="background: transparent url('../../assets/small-loading.gif')" src="{{listP.images._url}}">
       </ion-thumbnail>
       <ion-label style="margin-top: auto">
         <h2>{{listP.title}}</h2>
-        <p>{{listP.price}}</p>
+        <p>{{listP.price.toLocaleString()}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
 
 </ion-content>
-<ion-footer>
-  <ion-progress-bar *ngIf="isShowLoadingBar" type="indeterminate"></ion-progress-bar>
-</ion-footer>
+<!--<ion-footer>-->
+<!--  <ion-progress-bar *ngIf="isShowLoadingBar" type="indeterminate"></ion-progress-bar>-->
+<!--</ion-footer>-->
