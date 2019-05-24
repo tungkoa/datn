@@ -23,6 +23,8 @@ export class Tab2Page {
     category;
     price;
     photo = '../../assets/default.jpg';
+    photo1 = '';
+    photo2 = '';
     title;
 
     async presentAlert() {
@@ -36,23 +38,41 @@ export class Tab2Page {
         await alert.present();
     }
 
-    getPicture() {
+    getPicture(photo) {
         const options: CameraOptions = {
             quality: 50,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE,
             saveToPhotoAlbum: false,
-            correctOrientation: true
+            correctOrientation: true,
+            targetWidth: 300,
+            targetHeight: 400
         };
+        switch (photo) {
+            case 'photo':
+                this.camera.getPicture(options).then((imageData) => {
+                    this.photo = 'data:image/jpeg;base64,' + imageData;
+                    this.photo1 = '../../assets/default.jpg';
+                }, (err) => {
+                });
+                break;
+            case 'photo1':
+                this.camera.getPicture(options).then((imageData) => {
+                    this.photo1 = 'data:image/jpeg;base64,' + imageData;
+                    this.photo2 = '../../assets/default.jpg';
+                }, (err) => {
+                });
+                break;
+            case 'photo2':
+                this.camera.getPicture(options).then((imageData) => {
+                    this.photo2 = 'data:image/jpeg;base64,' + imageData;
+                }, (err) => {
+                });
+                break;
+        }
 
-        this.camera.getPicture(options).then((imageData) => {
-            // imageData is either a base64 encoded string or a file URI
-            // If it's base64 (DATA_URL):
-            this.photo = 'data:image/jpeg;base64,' + imageData;
-        }, (err) => {
-            // Handle error
-        });
+
     }
 
     post() {

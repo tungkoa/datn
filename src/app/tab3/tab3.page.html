@@ -1,39 +1,56 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab Three
-    </ion-title>
+<!--    <ion-progress-bar *ngIf="isShowLoadingBar" type="indeterminate"></ion-progress-bar>-->
+    <ion-title>Đăng nhập</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-list *ngIf="!isUserLogin">
-    <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input type="text" [value]="username" [(ngModel)]="username"></ion-input>
-    </ion-item>
+<!--  <ion-list *ngIf="!isUserLogin">-->
+<!--    <ion-item>-->
+<!--      <ion-label position="floating">Username</ion-label>-->
+<!--      <ion-input type="text" [value]="username" [(ngModel)]="username"></ion-input>-->
+<!--    </ion-item>-->
 
-    <ion-item>
-      <ion-label>Password</ion-label>
-      <ion-input type="password" [value]="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
+<!--    <ion-item>-->
+<!--      <ion-label position="floating">Password</ion-label>-->
+<!--      <ion-input type="password" [value]="password" [(ngModel)]="password"></ion-input>-->
+<!--    </ion-item>-->
 
-    <div>
-      <ion-button (click)="signUp()">
-        SIGN UP
-      </ion-button>
-      <button ion-button color="secondary" (click)="signIn()">
-        SIGN IN
-      </button>
+<!--    <div>-->
+<!--      <ion-button id="facebook" (click)="signUp()">-->
+<!--        Continue with Facebook-->
+<!--      </ion-button>-->
+<!--      <button ion-button color="secondary" (click)="signIn()">-->
+<!--        SIGN IN-->
+<!--      </button>-->
+<!--    </div>-->
+
+<!--  </ion-list>-->
+<div style="text-align: center;margin-top: 50px"><img style="width: 30%" src="../../assets/baibai-logo.png" alt=""></div>
+    <div style="display: flex; justify-content: space-around">
+        <ion-button expand="block" fill="clear" style="margin-top: 10px;border: 1px solid dodgerblue;width: 50%" (click)="facebookLogin()"><ion-icon name="logo-facebook" style="margin-right: 10px;"></ion-icon>
+            FACEBOOK
+        </ion-button>
+        <ion-button expand="block" fill="clear" color="danger" style="margin-top: 10px;border: 1px solid red;width: 50%" (click)="facebookLogin()"><ion-icon name="logo-google" style="margin-right: 10px;"></ion-icon>
+            GOOGLE
+        </ion-button>
     </div>
-    <div>
-      <ion-button (click)="facebookLogin()">
-        LOG IN WITH FACEBOOK
-      </ion-button>
+    <div style="text-align: center;border-bottom: 1px solid #0bb8cc">or</div>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="text" [value]="username" [(ngModel)]="username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [value]="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+    <div style="display: flex;justify-content: space-around;margin-top: 10px">
+        <ion-button expand="block" color="medium" fill="clear" style="width: 40%">Đăng kí</ion-button>
+        <ion-button expand="block" fill="clear" style="width: 40%">Đăng nhập</ion-button>
     </div>
-  </ion-list>
 
   <ion-button *ngIf="isUserLogin" (click)="fbLogout()">logout</ion-button>
 </ion-content>
-

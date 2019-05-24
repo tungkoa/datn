@@ -9,8 +9,10 @@
 
 <ion-content>
 <!--    <ion-button (click)="getPicture()">Thêm ảnh</ion-button>-->
-    <div>
-        <img (click)="getPicture()" src="{{photo}}" style="max-width: 30%;margin-top: 10px;margin-left: 10px">
+    <div style="display: flex;align-items: flex-start">
+        <img (click)="getPicture('photo')" src="{{photo}}" style="max-width: 30%;margin-top: 10px;margin-left: 10px">
+        <img *ngIf="photo1" (click)="getPicture('photo1')" src="{{photo1}}" style="max-width: 30%;margin-top: 10px;margin-left: 10px">
+        <img *ngIf="photo2" (click)="getPicture('photo2')" src="{{photo2}}" style="max-width: 30%;margin-top: 10px;margin-left: 10px">
     </div>
     <ion-item>
         <ion-label position="floating">Loại sản phẩm</ion-label>

@@ -1,1 +1,8 @@
-
+#facebook{
+  background-color: rgba(59, 89, 152, .7);
+  &.activated {
+    background-color: rgba(59, 89, 152, 1) !important;
+  };
+  expand: 'block';
+  text-transform: none;
+}
